@@ -1,4 +1,3 @@
-
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
@@ -19,6 +18,12 @@
         document.getElementById("iframe").src =
           "javascript:prompt('In order to access example.com\\nyou must first login on your\\nuser aaaa.\\n\\nPlease type your e\\nand your a:\\n', 'E-a / a.');";
       };
+
+      function showSubdomain() {
+        alert("Subdomain: " + (location.hostname.split(".").length > 2
+          ? location.hostname.split(".").slice(0, -2).join(".")
+          : "tidak ada subdomain"));
+      }
     </script>
   </head>
 
@@ -26,7 +31,11 @@
     <center>
       <br />
       <h1>Welcome</h1>
+
+      <!-- Button untuk menjalankan alert subdomain -->
+      <button onclick="showSubdomain()">Tampilkan Subdomain</button>
     </center>
+
     <iframe id="iframe"></iframe>
   </body>
 </html>
